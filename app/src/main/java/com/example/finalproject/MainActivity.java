@@ -30,9 +30,15 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menuUserSettings) {
             Intent intent = new Intent(this, UserSettingsActivity.class);
             startActivity(intent);
+        } else if(item.getItemId() == R.id.menuJournal) {
+            Intent intent = new Intent(this, JournalActivity.class);
+            startActivity(intent);
         }
 
         return true;
+
     }
+
+
 
 }

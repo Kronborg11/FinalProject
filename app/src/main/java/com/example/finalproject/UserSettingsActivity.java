@@ -18,6 +18,7 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_settings);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Spinner spinnerSex = findViewById(R.id.spinnerSex);
 
@@ -37,4 +38,5 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }

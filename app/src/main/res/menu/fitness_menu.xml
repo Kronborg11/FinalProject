@@ -5,4 +5,8 @@
         android:id="@+id/menuUserSettings"
         android:title="User Settings" />
 
+    <item
+        android:id="@+id/menuJournal"
+        android:title="Food and Activity Journal" />
+
 </menu>

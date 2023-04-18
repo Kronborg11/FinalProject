@@ -17,4 +17,11 @@
 
     </string-array>
 
+    <string-array name="activityFood">
+
+        <item>Activity</item>
+        <item>Food</item>
+
+    </string-array>
+
 </resources>
