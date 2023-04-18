@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Your Current Weight" />
+                android:text="@string/your_current_weight" />
 
             <TextView
                 android:id="@+id/txtCurrentWeight"
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Your Goal Weight:" />
+                android:text="@string/your_goal_weight" />
 
             <TextView
                 android:id="@+id/txtGoalWeight"
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Your Goal Calorie intake:" />
+                android:text="@string/your_goal_calorie_intake" />
 
             <TextView
                 android:id="@+id/txtGoalCalorieIntake"
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Calories Consumed" />
+                android:text="@string/calories_consumed" />
 
             <TextView
                 android:id="@+id/txtCaloriesConsumed"
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Calories Burned" />
+                android:text="@string/calories_burned" />
 
             <TextView
                 android:id="@+id/txtCaloriesBurned"
@@ -142,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Calories Remaining" />
+                android:text="@string/calories_remaining" />
 
             <TextView
                 android:id="@+id/txtCaloriesRemaining"

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.finalproject">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:name=".FitnessApplication"
         android:allowBackup="true"
@@ -12,19 +14,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FinalProject"
+        android:theme="@style/Theme.Custom"
         tools:targetApi="31">
-        <activity
-            android:name=".JournalActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".UserSettingsActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+        <service
+            android:name=".NotificationService"
+            android:enabled="true"
+            android:exported="true"></service>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +30,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".JournalActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UserSettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
