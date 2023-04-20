@@ -19,6 +19,7 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
     EditText txtCalories;
     Button btnSaveEntry;
     String text = "Activity";
+    Button btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
         txtName = findViewById(R.id.txtName);
         txtCalories = findViewById(R.id.txtCalories);
         btnSaveEntry = findViewById(R.id.btnSaveEntry);
+        btnReset = findViewById(R.id.btnReset);
 
         btnSaveEntry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,11 +45,20 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
                 String name = txtName.getText().toString();
                 int calories = Integer.parseInt(txtCalories.getText().toString());
 
-                if (!txtName.getText().toString().isEmpty() || !txtCalories.getText().toString().isEmpty()) {
-                    ((FitnessApplication)getApplication()).addResult(name, calories, text);
-                } else {
+                if ((txtName.getText().toString().isEmpty() || txtCalories.getText().toString().isEmpty())) {
                     Log.i("JournalActivity","Name and/or Calories not given.");
+                } else {
+                    ((FitnessApplication)getApplication()).addResult(name, calories, text);
                 }
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ((FitnessApplication)getApplication()).reset();
+
             }
         });
     }
