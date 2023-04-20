@@ -43,9 +43,10 @@
                 android:ems="10"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:minHeight="48dp"
                 android:labelFor="@+id/textViewNameHolder"
-                android:text="" >
+                android:minHeight="48dp"
+                android:text=""
+                tools:ignore="SpeakableTextPresentCheck">
 
                 <requestFocus />
             </EditText>
@@ -98,7 +99,8 @@
                 android:inputType="textPersonName"
                 android:labelFor="@+id/textviewCaloriesHolder"
                 android:minHeight="48dp"
-                android:text="" />
+                android:text=""
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <LinearLayout

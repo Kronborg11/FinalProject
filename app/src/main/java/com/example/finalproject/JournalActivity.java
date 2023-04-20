@@ -43,7 +43,7 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
                 String name = txtName.getText().toString();
                 int calories = Integer.parseInt(txtCalories.getText().toString());
 
-                if (txtName.getText().toString().isEmpty() || txtCalories.getText().toString().isEmpty()) {
+                if (!txtName.getText().toString().isEmpty() || !txtCalories.getText().toString().isEmpty()) {
                     ((FitnessApplication)getApplication()).addResult(name, calories, text);
                 } else {
                     Log.i("JournalActivity","Name and/or Calories not given.");
