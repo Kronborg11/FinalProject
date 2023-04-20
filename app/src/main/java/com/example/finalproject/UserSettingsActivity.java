@@ -59,6 +59,13 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
                 editor.putString("sex", String.valueOf(spinnerSex.getSelectedItemPosition()));
                 editor.putString("age", editAge.getText().toString());
                 editor.putString("height", editHeight.getText().toString());
+
+                int BMR = (int) (66.47 + (6.24 * Integer.parseInt(editCurrentWeight.getText().toString())) +
+                        ((12.7 * Integer.parseInt(editHeight.getText().toString())*12)) -
+                        (6.75 * Integer.parseInt(editAge.getText().toString())));
+
+                editor.putInt("BMR", BMR);
+
                 editor.commit();
             }
         };

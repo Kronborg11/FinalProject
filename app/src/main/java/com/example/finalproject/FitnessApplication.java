@@ -23,7 +23,7 @@ public class FitnessApplication extends android.app.Application {
 
         String fixedType = "'" + type + "'";
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String fixedDate = "'" + LocalDateTime.now().format(dateTimeFormatter) + "'";
 
         Log.i("DBAdd", "Adding: " + fixedName + fixedDate + fixedType + calories);
@@ -31,6 +31,9 @@ public class FitnessApplication extends android.app.Application {
         SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL("INSERT INTO tbl_journal_entries (name, calories, type, date) VALUES ("
                 + fixedName + "," + calories + "," + fixedType + "," + fixedDate + ")");
+
+
+
     }
 
     public void reset(){
@@ -117,4 +120,33 @@ public class FitnessApplication extends android.app.Application {
         }
         return dates;
     }
+
+    public double getCaloriesConsumed(){
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fixedDate = "'" + LocalDateTime.now().format(dateTimeFormatter) + "'";
+
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT SUM(calories) AS total_calories FROM tbl_journal_entries WHERE date = DATE('now') AND type = 'Food' ", null);
+        cursor.moveToFirst();
+        double caloriesConsumed = (int) cursor.getDouble(0);
+
+        return caloriesConsumed;
+
+    }
+
+    public double getCaloriesBurned(){
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String fixedDate = "'" + LocalDateTime.now().format(dateTimeFormatter) + "'";
+
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT SUM(calories) AS total_calories FROM tbl_journal_entries WHERE date = DATE('now') AND type = 'Activity' ", null);
+        cursor.moveToFirst();
+        double caloriesBurned = (int) cursor.getDouble(0);
+
+        return caloriesBurned;
+
+    }
+
 }
