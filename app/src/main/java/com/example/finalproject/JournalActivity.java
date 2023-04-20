@@ -6,6 +6,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,7 +25,7 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
     EditText txtName;
     EditText txtCalories;
     Button btnSaveEntry;
-    String text = "Food";
+    String text = "Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,8 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
                 int calories = Integer.parseInt(txtCalories.getText().toString());
 
                 ((FitnessApplication)getApplication()).addResult(name, calories, text);
+
+
 
             }
 

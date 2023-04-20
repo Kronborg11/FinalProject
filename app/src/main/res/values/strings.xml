@@ -9,6 +9,9 @@
     <string name="your_goal_weight">Your Goal Weight:</string>
     <string name="calories_burned">Calories Burned</string>
     <string name="calories_remaining">Calories Remaining</string>
+    <string name="user_settings">User Settings</string>
+    <string name="food_and_activity_journal">Food and Activity Journal</string>
+    <string name="history">History</string>
 
     <string-array name="sex">
 

@@ -46,7 +46,6 @@ public class NotificationService extends Service {
 
     @Override
     public void onCreate() {
-        Log.i("NotificationService", "Running....");
 
         createNotificationChannel();
 
@@ -63,8 +62,6 @@ public class NotificationService extends Service {
                 public void run() {
                     final Intent notificationIntent = new Intent(getApplicationContext(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     final PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
-
-                    Log.i("NotificationService", "Timer Running....");
 
                     String displayResult = "";
                     String quote = "";

@@ -3,10 +3,13 @@
 
     <item
         android:id="@+id/menuUserSettings"
-        android:title="User Settings" />
+        android:title="@string/user_settings" />
 
     <item
         android:id="@+id/menuJournal"
-        android:title="Food and Activity Journal" />
+        android:title="@string/food_and_activity_journal" />
+    <item
+        android:id="@+id/menuHistory"
+        android:title="@string/history" />
 
 </menu>

@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
         } else if(item.getItemId() == R.id.menuJournal) {
             Intent intent = new Intent(this, JournalActivity.class);
             startActivity(intent);
+        } else if(item.getItemId() == R.id.menuHistory) {
+            Intent intent = new Intent(this, HistoryActivity.class);
+            startActivity(intent);
         }
 
         return true;
