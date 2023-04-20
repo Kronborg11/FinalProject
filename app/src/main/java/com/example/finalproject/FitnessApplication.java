@@ -1,12 +1,11 @@
 package com.example.finalproject;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +18,7 @@ public class FitnessApplication extends android.app.Application {
     private SQLiteOpenHelper helper;
 
     public void addResult(String name, int calories, String type){
+
         String fixedName = "'" + name + "'";
 
         String fixedType = "'" + type + "'";
@@ -26,8 +26,9 @@ public class FitnessApplication extends android.app.Application {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String fixedDate = "'" + LocalDateTime.now().format(dateTimeFormatter) + "'";
 
-        SQLiteDatabase db = helper.getWritableDatabase();
+        Log.i("DBAdd", "Adding: " + fixedName + fixedDate + fixedType + calories);
 
+        SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL("INSERT INTO tbl_journal_entries (name, calories, type, date) VALUES ("
                 + fixedName + "," + calories + "," + fixedType + "," + fixedDate + ")");
     }

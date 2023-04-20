@@ -30,16 +30,17 @@ public class HistoryActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        recyclerView = findViewById(R.id.recyclerView);
+
+        // Get data for recycler view
         names = ((FitnessApplication) getApplication()).getNames().toArray(new String[0]);
         dates = ((FitnessApplication) getApplication()).getDates().toArray(new String[0]);
         types = ((FitnessApplication) getApplication()).getTypes().toArray(new String[0]);
         calories = ((FitnessApplication) getApplication()).getCalories().toArray(new String[0]);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        // Set adapter to recycler view
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         historyRecyclerViewAdapter = new HistoryRecyclerViewAdapter(names, dates, types, calories, this);
-
         recyclerView.setAdapter(historyRecyclerViewAdapter);
     }
 

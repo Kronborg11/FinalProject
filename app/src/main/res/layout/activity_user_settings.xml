@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"
-        android:weightSum="6">
+        android:weightSum="20">
 
 
         <LinearLayout
@@ -29,11 +29,11 @@
 
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/textViewCurrentWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Current Weight:" />
+                android:text="@string/current_weight" />
 
             <EditText
                 android:id="@+id/editCurrentWeight"
@@ -41,23 +41,29 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:minHeight="48dp"
+                android:text="">
+
+                <requestFocus />
+            </EditText>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginTop="10dp">
+            android:gravity="center">
 
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textViewGoalWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Goal Weight: " />
+                android:text="@string/goal_weight" />
 
             <EditText
                 android:id="@+id/editGoalWeight"
@@ -66,27 +72,31 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:minHeight="48dp"
+                android:text=""
+                android:importantForAutofill="no" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginTop="10dp">
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textViewSex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Sex" />
+                android:text="@string/sex" />
 
             <Spinner
                 android:id="@+id/spinnerSex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:minHeight="48dp" />
 
 
         </LinearLayout>
@@ -94,16 +104,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginTop="10dp">
+            android:gravity="center">
 
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textViewAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Age" />
+                android:text="@string/age" />
 
             <EditText
                 android:id="@+id/editAge"
@@ -112,22 +123,25 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:minHeight="48dp"
+                android:text=""
+                android:importantForAutofill="no" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginTop="10dp">
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textViewHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="height" />
+                android:text="@string/height" />
 
             <EditText
                 android:id="@+id/editHeight"
@@ -136,22 +150,26 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:minHeight="48dp"
+                android:text=""
+                android:importantForAutofill="no" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginTop="10dp">
+            android:gravity="center">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnSaveSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Save Settings" />
+                android:minWidth="128dp"
+                android:text="@string/save_settings"
+                android:textColor="#37474F" />
 
         </LinearLayout>
 

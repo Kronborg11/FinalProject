@@ -2,10 +2,7 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,11 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import java.time.LocalDateTime;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class JournalActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -45,21 +38,18 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
         btnSaveEntry = findViewById(R.id.btnSaveEntry);
 
         btnSaveEntry.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-
                 String name = txtName.getText().toString();
                 int calories = Integer.parseInt(txtCalories.getText().toString());
 
-                ((FitnessApplication)getApplication()).addResult(name, calories, text);
-
-
-
+                if (txtName.getText().toString().isEmpty() || txtCalories.getText().toString().isEmpty()) {
+                    ((FitnessApplication)getApplication()).addResult(name, calories, text);
+                } else {
+                    Log.i("JournalActivity","Name and/or Calories not given.");
+                }
             }
-
         });
-
     }
 
     @Override

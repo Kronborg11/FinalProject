@@ -39,11 +39,13 @@
         <activity
             android:name=".JournalActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
             android:name=".UserSettingsActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

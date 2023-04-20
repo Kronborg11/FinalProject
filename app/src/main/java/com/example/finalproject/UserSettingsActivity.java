@@ -1,18 +1,26 @@
 package com.example.finalproject;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class UserSettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    private EditText editCurrentWeight;
+    private EditText editGoalWeight;
+    private Spinner spinnerSex;
+    private EditText editAge;
+    private EditText editHeight;
+    private Button btnSaveSettings;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +28,41 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.activity_user_settings);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Spinner spinnerSex = findViewById(R.id.spinnerSex);
+        editCurrentWeight = findViewById(R.id.editCurrentWeight);
+        editGoalWeight = findViewById(R.id.editGoalWeight);
+        spinnerSex = findViewById(R.id.spinnerSex);
+        editAge = findViewById(R.id.editAge);
+        editHeight = findViewById(R.id.editHeight);
+        btnSaveSettings = findViewById(R.id.btnSaveSettings);
+
+        sharedPreferences = getSharedPreferences("UserSettings", MODE_PRIVATE);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sex, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSex.setAdapter(adapter);
         spinnerSex.setOnItemSelectedListener(this);
 
+        // Fill with data
+        editCurrentWeight.setText(sharedPreferences.getString("currentWeight", ""));
+        editGoalWeight.setText(sharedPreferences.getString("goalWeight", ""));
+        spinnerSex.setSelection(Integer.parseInt(sharedPreferences.getString("sex", "0")));
+        editAge.setText(sharedPreferences.getString("age", ""));
+        editHeight.setText(sharedPreferences.getString("height", ""));
+
+        // Save button OnClick listener
+        View.OnClickListener saveSettings = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("currentWeight", editCurrentWeight.getText().toString());
+                editor.putString("goalWeight", editGoalWeight.getText().toString());
+                editor.putString("sex", String.valueOf(spinnerSex.getSelectedItemPosition()));
+                editor.putString("age", editAge.getText().toString());
+                editor.putString("height", editHeight.getText().toString());
+                editor.commit();
+            }
+        };
+        btnSaveSettings.setOnClickListener(saveSettings);
     }
 
     @Override

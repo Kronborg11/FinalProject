@@ -12,6 +12,16 @@
     <string name="user_settings">User Settings</string>
     <string name="food_and_activity_journal">Food and Activity Journal</string>
     <string name="history">History</string>
+    <string name="name">Name</string>
+    <string name="type">Type</string>
+    <string name="calories">Calories</string>
+    <string name="save">Save</string>
+    <string name="current_weight">Current Weight (lb):</string>
+    <string name="goal_weight">Goal Weight (lb):</string>
+    <string name="sex">Sex:</string>
+    <string name="age">Age:</string>
+    <string name="height">Height (cm):</string>
+    <string name="save_settings">Save Settings</string>
 
     <string-array name="sex">
 
