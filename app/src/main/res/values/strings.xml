@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">Fitness Tracker</string>
-    <string name="title_activity_user_settings">UserSettingsActivity</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="your_current_weight">Your Current Weight</string>
-    <string name="your_goal_calorie_intake">Your Goal Calorie intake:</string>
-    <string name="calories_consumed">Calories Consumed</string>
+    <string name="your_current_weight">Your Current Weight:</string>
+    <string name="your_goal_calorie_intake">Your Goal Caloric Intake:</string>
+    <string name="calories_consumed">Calories Consumed:</string>
     <string name="your_goal_weight">Your Goal Weight:</string>
-    <string name="calories_burned">Calories Burned</string>
-    <string name="calories_remaining">Calories Remaining</string>
+    <string name="calories_burned">Calories Burned:</string>
+    <string name="calories_remaining">Calories Remaining:</string>
     <string name="user_settings">User Settings</string>
     <string name="food_and_activity_journal">Food and Activity Journal</string>
     <string name="history">History</string>
@@ -23,6 +20,9 @@
     <string name="height">Height (cm):</string>
     <string name="save_settings">Save Settings</string>
     <string name="reset">Reset Journal</string>
+    <string name="about_you">About You</string>
+    <string name="today_s_stats">Today\'s Stats</string>
+    <string name="add_food_activity">Add Food/Activity</string>
 
     <string-array name="sex">
 

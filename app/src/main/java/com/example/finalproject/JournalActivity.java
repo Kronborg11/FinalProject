@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class JournalActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -20,6 +25,8 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
     Button btnSaveEntry;
     String text = "Activity";
     Button btnReset;
+
+    LinearLayout layoutJournalButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +45,29 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
         txtCalories = findViewById(R.id.txtCalories);
         btnSaveEntry = findViewById(R.id.btnSaveEntry);
         btnReset = findViewById(R.id.btnReset);
+        layoutJournalButtons = findViewById(R.id.layoutJournalButtons);
 
         btnSaveEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = txtName.getText().toString();
-                int calories = Integer.parseInt(txtCalories.getText().toString());
-
                 if ((txtName.getText().toString().isEmpty() || txtCalories.getText().toString().isEmpty())) {
-                    Log.i("JournalActivity","Name and/or Calories not given.");
+                    Snackbar snackbar = Snackbar.make(v, "Name and/or Calories not given.", Snackbar.LENGTH_LONG);
+                    View view = snackbar.getView();
+                    FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+                    params.gravity = Gravity.TOP;
+                    view.setLayoutParams(params);
+                    snackbar.show();
                 } else {
+                    String name = txtName.getText().toString();
+                    int calories = Integer.parseInt(txtCalories.getText().toString());
+
                     ((FitnessApplication)getApplication()).addResult(name, calories, text);
+                    Snackbar snackbar = Snackbar.make(v, "Activity/Food saved.", Snackbar.LENGTH_LONG);
+                    View view = snackbar.getView();
+                    FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+                    params.gravity = Gravity.TOP;
+                    view.setLayoutParams(params);
+                    snackbar.show();
                 }
             }
         });

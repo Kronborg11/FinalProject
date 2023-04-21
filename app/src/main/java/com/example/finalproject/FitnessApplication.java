@@ -127,12 +127,11 @@ public class FitnessApplication extends android.app.Application {
         String fixedDate = "'" + LocalDateTime.now().format(dateTimeFormatter) + "'";
 
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT SUM(calories) AS total_calories FROM tbl_journal_entries WHERE date = DATE('now') AND type = 'Food' ", null);
+        Cursor cursor = db.rawQuery("SELECT SUM(calories) FROM tbl_journal_entries WHERE date = " + fixedDate + " AND type = 'Food' ", null);
         cursor.moveToFirst();
-        double caloriesConsumed = (int) cursor.getDouble(0);
+        double caloriesConsumed = cursor.getDouble(0);
 
         return caloriesConsumed;
-
     }
 
     public double getCaloriesBurned(){
@@ -141,12 +140,11 @@ public class FitnessApplication extends android.app.Application {
         String fixedDate = "'" + LocalDateTime.now().format(dateTimeFormatter) + "'";
 
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT SUM(calories) AS total_calories FROM tbl_journal_entries WHERE date = DATE('now') AND type = 'Activity' ", null);
+        Cursor cursor = db.rawQuery("SELECT SUM(calories) FROM tbl_journal_entries WHERE date = " + fixedDate + " AND type = 'Activity' ", null);
         cursor.moveToFirst();
-        double caloriesBurned = (int) cursor.getDouble(0);
+        double caloriesBurned = cursor.getDouble(0);
 
         return caloriesBurned;
-
     }
 
 }

@@ -20,9 +20,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textViewAboutYou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="@string/about_you" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="10dp"
             android:layout_weight="1">
 
@@ -30,14 +41,12 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/your_current_weight" />
 
             <TextView
                 android:id="@+id/txtCurrentWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="" />
 
         </LinearLayout>
@@ -45,6 +54,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="5dp"
             android:layout_weight="1">
 
@@ -52,14 +62,12 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/your_goal_weight" />
 
             <TextView
                 android:id="@+id/txtGoalWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="" />
 
         </LinearLayout>
@@ -67,6 +75,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="10dp"
             android:layout_weight="1">
 
@@ -74,21 +83,30 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/your_goal_calorie_intake" />
+                android:text="@string/your_goal_calorie_intake"
+                tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/txtGoalCalorieIntake"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="" />
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textViewToday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/today_s_stats" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="10dp"
             android:layout_weight="2">
 
@@ -97,20 +115,21 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:orientation="vertical"
                 android:text="@string/calories_consumed" />
 
             <TextView
                 android:id="@+id/txtCaloriesConsumed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="10dp"
             android:layout_weight="2">
 
@@ -119,20 +138,19 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/calories_burned" />
 
             <TextView
                 android:id="@+id/txtCaloriesBurned"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="10dp"
             android:layout_weight="4">
 
@@ -141,14 +159,12 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/calories_remaining" />
 
             <TextView
                 android:id="@+id/txtCaloriesRemaining"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="" />
 
         </LinearLayout>
@@ -161,11 +177,12 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnAddActivityFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/add_food_activity"
+                android:textColor="#37474F"
+                tools:ignore="NestedWeights" />
         </LinearLayout>
 
     </LinearLayout>

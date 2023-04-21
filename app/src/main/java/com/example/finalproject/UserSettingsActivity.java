@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -54,7 +56,7 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
         // Save button OnClick listener
         View.OnClickListener saveSettings = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("currentWeight", editCurrentWeight.getText().toString());
                 editor.putString("goalWeight", editGoalWeight.getText().toString());
@@ -69,6 +71,13 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
                 editor.putInt("BMR", BMR);
 
                 editor.commit();
+
+                Snackbar snackbar = Snackbar.make(v, "Settings saved.", Snackbar.LENGTH_LONG);
+                View view = snackbar.getView();
+                FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+                params.gravity = Gravity.TOP;
+                view.setLayoutParams(params);
+                snackbar.show();
 
 
             }

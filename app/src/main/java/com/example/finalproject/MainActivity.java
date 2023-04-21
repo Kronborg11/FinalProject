@@ -6,9 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView CaloriesConsumed;
     private TextView CaloriesBurned;
     private TextView CaloriesRemaining;
+    private Button btnAddActivityFood;
 
     private SharedPreferences sharedPreferences;
 
@@ -34,17 +42,26 @@ public class MainActivity extends AppCompatActivity {
         CaloriesConsumed = findViewById(R.id.txtCaloriesConsumed);
         CaloriesBurned = findViewById(R.id.txtCaloriesBurned);
         CaloriesRemaining = findViewById(R.id.txtCaloriesRemaining);
+        btnAddActivityFood = findViewById(R.id.btnAddActivityFood);
 
-        int caloriesConsumed = (int)((FitnessApplication)getApplication()).getCaloriesConsumed();
-        int caloriesBurned = (int)((FitnessApplication)getApplication()).getCaloriesBurned();
+        int caloriesConsumed = (int) ((FitnessApplication)getApplication()).getCaloriesConsumed();
+        int caloriesBurned = (int) ((FitnessApplication)getApplication()).getCaloriesBurned();
 
-        CurrentWeight.setText(sharedPreferences.getString("currentWeight", ""));
-        GoalWeight.setText(sharedPreferences.getString("goalWeight", ""));
+        CurrentWeight.setText(sharedPreferences.getString("currentWeight", "") + " lbs");
+        GoalWeight.setText(sharedPreferences.getString("goalWeight", "") + " lbs");
         GoalCalorieIntake.setText(String.valueOf(sharedPreferences.getInt("BMR", 0)));
+        Log.i("MainActivity", "Consumed: " + caloriesConsumed + " Burned: " + caloriesBurned);
         CaloriesConsumed.setText(String.valueOf(caloriesConsumed));
         CaloriesBurned.setText(String.valueOf(caloriesBurned));
         CaloriesRemaining.setText(String.valueOf((sharedPreferences.getInt("BMR", 0) - caloriesConsumed + caloriesBurned)));
 
+        btnAddActivityFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), JournalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,13 +84,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
-
     }
 
     @Override
-    protected void onPause() {
+    protected void onStop() {
         startService(new Intent(getApplicationContext(), NotificationService.class));
 
-        super.onPause();
+        super.onStop();
     }
 }
