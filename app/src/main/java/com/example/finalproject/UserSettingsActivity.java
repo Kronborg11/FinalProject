@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class UserSettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText editCurrentWeight;
@@ -45,7 +47,7 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
         // Fill with data
         editCurrentWeight.setText(sharedPreferences.getString("currentWeight", ""));
         editGoalWeight.setText(sharedPreferences.getString("goalWeight", ""));
-        spinnerSex.setSelection(Integer.parseInt(sharedPreferences.getString("sex", "0")));
+        spinnerSex.setSelection(sharedPreferences.getInt("sex", 0));
         editAge.setText(sharedPreferences.getString("age", ""));
         editHeight.setText(sharedPreferences.getString("height", ""));
 
@@ -56,17 +58,19 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("currentWeight", editCurrentWeight.getText().toString());
                 editor.putString("goalWeight", editGoalWeight.getText().toString());
-                editor.putString("sex", String.valueOf(spinnerSex.getSelectedItemPosition()));
+                editor.putInt("sex", spinnerSex.getSelectedItemPosition());
                 editor.putString("age", editAge.getText().toString());
                 editor.putString("height", editHeight.getText().toString());
 
                 int BMR = (int) (66.47 + (6.24 * Integer.parseInt(editCurrentWeight.getText().toString())) +
-                        ((12.7 * Integer.parseInt(editHeight.getText().toString())*12)) -
+                        ((12.7 * (Integer.parseInt(editHeight.getText().toString()) / 30.48)*12)) -
                         (6.75 * Integer.parseInt(editAge.getText().toString())));
 
                 editor.putInt("BMR", BMR);
 
                 editor.commit();
+
+
             }
         };
         btnSaveSettings.setOnClickListener(saveSettings);

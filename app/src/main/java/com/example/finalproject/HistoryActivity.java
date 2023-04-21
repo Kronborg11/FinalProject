@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+
+import java.util.ArrayList;
 
 public class HistoryActivity extends AppCompatActivity {
 
@@ -15,10 +18,10 @@ public class HistoryActivity extends AppCompatActivity {
 
     HistoryRecyclerViewAdapter historyRecyclerViewAdapter;
 
-    String names[];
-    String dates[];
-    String types[];
-    String calories[];
+    ArrayList<String> names;
+    ArrayList<String> dates;
+    ArrayList<String> types;
+    ArrayList<String> calories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +36,14 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         // Get data for recycler view
-        names = ((FitnessApplication) getApplication()).getNames().toArray(new String[0]);
-        dates = ((FitnessApplication) getApplication()).getDates().toArray(new String[0]);
-        types = ((FitnessApplication) getApplication()).getTypes().toArray(new String[0]);
-        calories = ((FitnessApplication) getApplication()).getCalories().toArray(new String[0]);
+        names = ((FitnessApplication) getApplication()).getNames();
+        dates = ((FitnessApplication) getApplication()).getDates();
+        types = ((FitnessApplication) getApplication()).getTypes();
+        calories = ((FitnessApplication) getApplication()).getCalories();
+
+        for (Object name : names.toArray()) {
+            Log.i("nameobject", name.toString());
+        }
 
         // Set adapter to recycler view
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
