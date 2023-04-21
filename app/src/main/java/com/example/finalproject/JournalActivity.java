@@ -2,6 +2,8 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -11,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
@@ -25,6 +28,7 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
     Button btnSaveEntry;
     String text = "Activity";
     Button btnReset;
+    ImageView imgCheck;
 
     LinearLayout layoutJournalButtons;
 
@@ -33,6 +37,10 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        imgCheck = findViewById(R.id.imgCheck);
+        imgCheck.animate().alpha(0f);
+
 
         spinnerActivityFood = findViewById(R.id.spinnerActivityFood);
 
@@ -68,6 +76,20 @@ public class JournalActivity extends AppCompatActivity implements AdapterView.On
                     params.gravity = Gravity.TOP;
                     view.setLayoutParams(params);
                     snackbar.show();
+
+                    imgCheck.setVisibility(View.VISIBLE);
+                    imgCheck.animate().alpha(1f).setDuration(2000).setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            imgCheck.animate().alpha(0f).setDuration(2000).setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    super.onAnimationEnd(animation);
+                                }
+                            });
+                            super.onAnimationEnd(animation);
+                        }
+                    });
                 }
             }
         });

@@ -7,131 +7,151 @@
     tools:context=".MainActivity"
     android:id="@+id/MainLayout">
 
-    <LinearLayout
-        android:id="@+id/parentLinearLayout"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="10dp"
-        android:weightSum="10">
-
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/parentLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:weightSum="10">
 
-            <TextView
-                android:id="@+id/textViewNameHolder"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:text="@string/name" />
+                android:gravity="center">
 
-            <EditText
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/textViewNameHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/name"
+                    tools:ignore="NestedWeights" />
+
+                <EditText
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:labelFor="@+id/textViewNameHolder"
+                    android:minHeight="48dp"
+                    android:text=""
+                    tools:ignore="SpeakableTextPresentCheck">
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:labelFor="@+id/textViewNameHolder"
-                android:minHeight="48dp"
-                android:text=""
-                tools:ignore="SpeakableTextPresentCheck">
+                android:gravity="center"
+                android:weightSum="2">
 
-                <requestFocus />
-            </EditText>
+                <TextView
+                    android:id="@+id/textViewTypeHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/type"
+                    tools:ignore="NestedWeights" />
+
+                <Spinner
+                    android:id="@+id/spinnerActivityFood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textviewCaloriesHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/calories"
+                    tools:ignore="NestedWeights" />
+
+                <EditText
+                    android:id="@+id/txtCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:labelFor="@+id/textviewCaloriesHolder"
+                    android:minHeight="48dp"
+                    android:text=""
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutJournalButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnSaveEntry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="3dp"
+                    android:minWidth="160dp"
+                    android:text="@string/save"
+                    android:textColor="#37474F"
+                    tools:ignore="ButtonStyle" />
+
+                <Button
+                    android:id="@+id/btnReset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:minWidth="160dp"
+                    android:text="@string/reset"
+                    android:textColor="#37474F"
+                    tools:ignore="ButtonStyle" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:weightSum="2"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textViewTypeHolder"
+            <ImageView
+                android:id="@+id/imgCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:layout_weight="1"
-                android:text="@string/type" />
-
-            <Spinner
-                android:id="@+id/spinnerActivityFood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="48dp" />
+                android:visibility="invisible"
+                app:srcCompat="@drawable/baseline_check_24" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/textviewCaloriesHolder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/calories" />
-
-            <EditText
-                android:id="@+id/txtCalories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:labelFor="@+id/textviewCaloriesHolder"
-                android:minHeight="48dp"
-                android:text=""
-                tools:ignore="SpeakableTextPresentCheck" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutJournalButtons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btnSaveEntry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="160dp"
-                android:text="@string/save"
-                android:layout_marginEnd="3dp"
-                android:textColor="#37474F" />
-
-            <Button
-                android:id="@+id/btnReset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="160dp"
-                android:text="@string/reset"
-                android:layout_marginStart="3dp"
-                android:textColor="#37474F" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
