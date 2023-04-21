@@ -81,7 +81,7 @@ public class FitnessApplication extends android.app.Application {
         ArrayList<String> calories = new ArrayList<>();
         SQLiteDatabase db = helper.getReadableDatabase();
         try {
-            Cursor cursor = db.rawQuery(" SELECT name FROM tbl_journal_entries", null);
+            Cursor cursor = db.rawQuery(" SELECT calories FROM tbl_journal_entries", null);
             while (cursor.moveToNext()) {
                 calories.add(cursor.getString(cursor.getColumnIndex("calories")));
             }
@@ -96,7 +96,7 @@ public class FitnessApplication extends android.app.Application {
         ArrayList<String> types = new ArrayList<>();
         SQLiteDatabase db = helper.getReadableDatabase();
         try {
-            Cursor cursor = db.rawQuery(" SELECT name FROM tbl_journal_entries", null);
+            Cursor cursor = db.rawQuery(" SELECT type FROM tbl_journal_entries", null);
             while (cursor.moveToNext()) {
                 types.add(cursor.getString(cursor.getColumnIndex("type")));
             }
@@ -111,7 +111,7 @@ public class FitnessApplication extends android.app.Application {
         ArrayList<String> dates = new ArrayList<>();
         SQLiteDatabase db = helper.getReadableDatabase();
         try {
-            Cursor cursor = db.rawQuery(" SELECT name FROM tbl_journal_entries", null);
+            Cursor cursor = db.rawQuery(" SELECT date FROM tbl_journal_entries", null);
             while (cursor.moveToNext()) {
                 dates.add(cursor.getString(cursor.getColumnIndex("date")));
             }

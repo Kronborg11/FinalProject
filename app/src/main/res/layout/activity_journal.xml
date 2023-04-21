@@ -112,16 +112,18 @@
                 android:id="@+id/btnSaveEntry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="128dp"
+                android:minWidth="160dp"
                 android:text="@string/save"
+                android:layout_marginEnd="3dp"
                 android:textColor="#37474F" />
 
             <Button
                 android:id="@+id/btnReset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="128dp"
+                android:minWidth="160dp"
                 android:text="@string/reset"
+                android:layout_marginStart="3dp"
                 android:textColor="#37474F" />
 
         </LinearLayout>

@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"
-        android:weightSum="20">
+        android:weightSum="28">
 
 
         <LinearLayout

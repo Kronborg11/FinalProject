@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/rounded_corner"
     android:orientation="vertical" >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -14,24 +16,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewNameHolder"
-            android:text="Name"
+            android:text=""
             android:textAlignment="textStart"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:background="@color/green_200"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
             android:layout_weight="1"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewType"
-            android:text="Type"
+            android:text=""
             android:textAlignment="textEnd"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:paddingStart="0dp"
+            android:paddingEnd="10dp"
             android:textColor="@color/black"
-            android:background="@color/green_200"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -47,9 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/green_200"
-            android:text="Date"
+            android:text=""
             android:textAlignment="textStart"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -58,12 +63,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewCalories"
-            android:text="Calories"
+            android:text=""
             android:textAlignment="textEnd"
             android:textSize="20sp"
+            android:paddingStart="0dp"
+            android:paddingEnd="10dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:background="@color/green_200"
             android:layout_weight="1"/>
 
     </LinearLayout>

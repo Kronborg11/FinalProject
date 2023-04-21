@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
+    protected void onPause() {
         startService(new Intent(getApplicationContext(), NotificationService.class));
 
-        super.onStop();
+        super.onPause();
     }
 }
