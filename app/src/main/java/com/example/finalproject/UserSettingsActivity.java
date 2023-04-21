@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class UserSettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText editCurrentWeight;
@@ -67,6 +69,8 @@ public class UserSettingsActivity extends AppCompatActivity implements AdapterVi
                 editor.putInt("BMR", BMR);
 
                 editor.commit();
+
+
             }
         };
         btnSaveSettings.setOnClickListener(saveSettings);

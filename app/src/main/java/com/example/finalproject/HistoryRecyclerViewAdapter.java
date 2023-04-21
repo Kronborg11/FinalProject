@@ -71,7 +71,12 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
         holder.textViewName.setText(names.get(position));
         holder.textViewDate.setText(dates.get(position));
         holder.textViewType.setText(types.get(position));
-        holder.textViewCalories.setText(calories.get(position));
+        if (types.get(position).equals("Activity")) {
+            holder.textViewCalories.setText("-" + calories.get(position));
+        } else {
+            holder.textViewCalories.setText(calories.get(position));
+        }
+
     }
 
     @Override

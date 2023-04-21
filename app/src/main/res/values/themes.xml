@@ -19,6 +19,7 @@
         <item name="colorSecondaryVariant">@color/red_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="Theme.FinalProject.NoActionBar">
